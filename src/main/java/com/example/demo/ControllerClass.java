@@ -16,4 +16,9 @@ public class ControllerClass {
 	public  String display2() {
 		return "I am fine";
 	}
+	
+	@RequestMapping("/view/2")
+	public  String display2() {
+		return "I too good";
+	}
 }
