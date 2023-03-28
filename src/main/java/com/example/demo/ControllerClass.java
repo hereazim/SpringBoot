@@ -12,13 +12,13 @@ public class ControllerClass {
 		return "Hi all, How are you?";
 	}
 	
-	@RequestMapping("/view/1")
+	@RequestMapping("/view1")
 	public  String display2() {
 		return "I am fine";
 	}
 	
-	@RequestMapping("/view/2")
-	public  String display2() {
+	@RequestMapping("/view2")
+	public  String display3() {
 		return "I too good";
 	}
 }
