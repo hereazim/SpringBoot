@@ -13,7 +13,7 @@ pipeline{
         stage('Build Docker'){
             steps{
                 script{
-                    bat 'docker build -t kaazim/dockerjenkins .'
+                    bat 'docker build -t kaazim/springbootapp .'
                     
                 }
             }
@@ -22,10 +22,17 @@ pipeline{
             steps{
                 script{
                     bat 'docker login -u kaazim -p Azimka@01#'
-                    bat 'docker push kaazim/dockerjenkins'
+                    bat 'docker push kaazim/springbootapp'
                 }
             }
         }
+        stage('Deploy Container to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+        }
+      }
+    }
         
     }
 }
