@@ -29,9 +29,7 @@ pipeline{
         stage('Deploy Container to Kubernetes') {
       steps {
         script {
-          bat 'kubectl apply -f deployment.yaml'
-          bat 'kubectl apply -f service.yaml'
-        }
+         kubernetesDeploy configs: 'deployment.yaml','service.yaml', kubeconfigId: 'kubernetes'
       }
     }
         
